@@ -1,0 +1,28 @@
+#Microbit Radio Send/Reciever Code
+from microbit import *
+import radio
+radio.on()
+while True:
+    ###Sender####################
+    if button_a.is_pressed():
+        radio.send("Check")
+        display.show(Image.HAPPY)
+        sleep(500)
+        display.clear()
+    ###Feedback###################
+    incoming = radio.receive()
+    if incoming == 'Feedback':
+         display.show(Image.HEART)
+         sleep(500)
+         display.clear()
+         #Keep on Loop Sending
+         '''radio.send("Check")
+         display.show(Image.HAPPY)
+         sleep(500)
+         display.clear()'''
+    ###Receiver####################
+    if incoming == 'Check':
+        display.show(Image.HAPPY)
+        sleep(1000)
+        radio.send('Feedback')
+        display.clear()

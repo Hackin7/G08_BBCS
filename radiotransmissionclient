@@ -1,0 +1,11 @@
+#Microbit Radio Reciever Code
+from microbit import *
+import radio
+radio.on()
+while True:
+    incoming = radio.receive()
+    if incoming == 'Check':
+        display.show(Image.HAPPY)
+        sleep(1000)
+        radio.send('Feedback')
+        display.clear()

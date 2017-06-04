@@ -12,4 +12,6 @@ Both host and client have a built in compass
 
 To make it recalibratable, add this (with indent to show in loop) at last line:
 
+```
 if button_b.is_pressed(): compass.calibrate
+```
